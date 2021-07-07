@@ -5,9 +5,14 @@
 ##### Description: Navigate Soil Survey Website to download county level, highly
 #####              detailed soil composition files using RSelenium
 ###############################################################################
+### Note: Java Bullshittery
+old_path <- Sys.getenv("PATH")
+Sys.setenv(PATH = paste(old_path, 
+                        "C:\\Users\\cultice.7\\Documents\\Java\\jdk-11.0.11+9\\bin", 
+                        sep = ";"))
+Sys.setenv(JAVA_HOME= "C:\\Users\\cultice.7\\Documents\\Java\\jdk-11.0.11+9\\jre")
 
 ### Note: Packages of Interest
-
 libraries <- c("tidyverse",
                "tictoc",
                "tibble",
@@ -21,11 +26,12 @@ libraries <- c("tidyverse",
                "rgdal",
                "furrr", 
                "pryr",
-               "reticulate")
+               "reticulate",
+               "RSelenium")
 pacman::p_load(char = libraries)
 
 ### Note: Location/WebAddress
-state_v <- "Ohio"
+state <- "Ohio"
 map(state_v, f_SoilDL)
 
 ### Note: Cleaning Soil Shapefiles for Data Extracts;

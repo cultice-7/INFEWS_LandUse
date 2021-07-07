@@ -12,7 +12,7 @@ f_soilDL <- function(state){
   
   ### Note: Delete zipped file location if exists
   if (dir.exists(here("Data", "Raw"))){
-    unlink(here("Data", "Raw"))
+    unlink(here("Data", "Raw"), recursive = TRUE)
     dir.create(here("Data", "Raw"))
   }else{
     dir.create(here("Data", "Raw"))
